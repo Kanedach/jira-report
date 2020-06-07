@@ -2,7 +2,7 @@
   <div class="ui relaxed divided list">
     <div class="item" *ngFor="let f of feature | async">
       <div class="content">
-        <p class="header">{{ f.key }} {{ f.summary }}</p>
+        <p class="header">{{ f.key }} {{ f.summary }} <a href="https://jira.swisscom.com/browse/{{f.key}}" target="_blank"><i class="info icon"></i></a></p>
         <div class="description" style="margin-top: 10px">
           <app-state-step [history]="f.histories" [created]="f.created"></app-state-step>
         </div>
