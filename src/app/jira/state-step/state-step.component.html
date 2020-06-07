@@ -1,17 +1,28 @@
 <div class="ui mini steps">
+  <ng-container *ngIf="history.length > 0; else noHistory">
+    <div class="step">
+      <div class="content" *ngIf="history[0]">
+        <div class="title">{{history[0].from}}</div>
+        <div class="description">{{created | date: 'dd.MM.yyyy'}}</div>
+      </div>
+    </div>
+    <div class="step" *ngFor="let h of history; index as i">
+      <div class="content">
+        <div class="title">{{h.to}}</div>
+        <ng-container *ngIf="history[i+1]">
+          <div class="description">{{history[i+1].created | amDifference: history[i].created :'days' : false}} days</div>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #noHistory>
   <div class="step">
-    <div class="content" *ngIf="history[0]">
-      <div class="title">{{history[0].from}}</div>
+    <div class="content">
+      <div class="title">Funnel</div>
       <div class="description">{{created | date: 'dd.MM.yyyy'}}</div>
     </div>
   </div>
-  <div class="step" *ngFor="let h of history; index as i">
-    <div class="content">
-      <div class="title">{{h.to}}</div>
-      <ng-container *ngIf="history[i+1]">
-        <div class="description">{{history[i+1].created | amDifference: history[i].created :'days' : false}} days</div>
-      </ng-container>
-    </div>
-  </div>
-</div>
+</ng-template>
 

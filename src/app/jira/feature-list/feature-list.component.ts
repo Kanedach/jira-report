@@ -14,14 +14,13 @@ export class FeatureListComponent implements OnInit {
   total: Observable<number>;
   startAt: Observable<number>;
   maxResults: Observable<number>;
-  isInitLoading: Observable<boolean>;
-  loadingItem: number[] = [0, 1, 2, 3, 4];
+  isLoading: Observable<boolean>;
 
   constructor(private jiraFacadeService: JiraFacadeService) {
     this.feature = this.jiraFacadeService.jiraUI.getFeature;
     this.startAt = this.jiraFacadeService.jiraUI.getStartAt;
     this.maxResults = this.jiraFacadeService.jiraUI.getMaxResults;
-    this.isInitLoading = this.jiraFacadeService.jiraUI.isLoading;
+    this.isLoading = this.jiraFacadeService.jiraUI.isLoading;
   }
 
   ngOnInit(): void {
