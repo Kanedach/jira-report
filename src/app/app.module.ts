@@ -12,12 +12,15 @@ import {ReportComponent} from './jira/report/report.component';
 import {FeatureListComponent} from './jira/feature-list/feature-list.component';
 import {EffectsModule} from '@ngrx/effects';
 import {JiraEffects} from './store/effects/jira.effects';
+import { StateStepComponent } from './jira/state-step/state-step.component';
+import {MomentModule} from 'ngx-moment';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReportComponent,
-    FeatureListComponent
+    FeatureListComponent,
+    StateStepComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import {JiraEffects} from './store/effects/jira.effects';
     HttpClientModule,
     StoreModule.forRoot({jira: jiraReducer}),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: false}),
-    EffectsModule.forRoot([JiraEffects])
+    EffectsModule.forRoot([JiraEffects]),
+    MomentModule
   ],
   providers: [JiraFacadeService],
   bootstrap: [AppComponent]

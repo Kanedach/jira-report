@@ -17,7 +17,7 @@ export class JiraEffects {
     this.actions$.pipe(
       ofType(jiraAction.fetchJira),
       switchMap(() =>
-        this.jiraService.getInit().pipe(
+        this.jiraService.getJira('0', '30').pipe(
           map(jira => jiraAction.fetchedJira({
             jira
           }))

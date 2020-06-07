@@ -10,8 +10,14 @@ export class JiraService {
 
   constructor(private http: HttpClient) { }
 
-  getInit(): Observable<Jira>  {
-    return this.http.get<any>('./assets/jira.json');
+  getJira(startAtJira: string, maxResultsJira: string): Observable<Jira>  {
+    console.log(startAtJira);
+    return this.http.get<any>('./assets/jira.json', {
+      params: {
+        startAt: startAtJira,
+        maxResults: maxResultsJira
+      }
+    });
   }
 
 }
