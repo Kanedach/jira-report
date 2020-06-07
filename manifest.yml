@@ -1,0 +1,12 @@
+---
+applications:
+  - name: jiraReport
+    routes:
+      - route: gurten-jiraReport.scapp-corp.swisscom.com
+    buildpacks:
+      - https://github.com/cloudfoundry/staticfile-buildpack
+    disk_quota: 64MB
+    memory: 64MB
+    instances: 1
+    path: ./dist/jira-report
+    command: "$HOME/boot.sh"

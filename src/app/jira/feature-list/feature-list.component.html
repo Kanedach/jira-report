@@ -1,5 +1,5 @@
-<div class="ui relaxed divided list">
-  <ng-container *ngIf="isInitLoading">
+<ng-container *ngIf="isInitLoading; else loading">
+  <div class="ui relaxed divided list">
     <div class="item" *ngFor="let f of feature | async">
       <div class="content">
         <p class="header">{{ f.key }} {{ f.summary }}</p>
@@ -8,11 +8,19 @@
         </div>
       </div>
     </div>
-  </ng-container>
-</div>
+  </div>
+</ng-container>
+<br>
+<br>
+<br>
+<!--
 <div class="fluid ui animated button" tabindex="0">
   <div class="visible content">Show more results</div>
   <div class="hidden content">
     <i class="right plus icon"></i>
   </div>
 </div>
+-->
+<ng-template #loading>
+  <div class="ui big active centered inline text loader" style="margin-top: 15%">Loading feature...</div>
+</ng-template>
