@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {JiraFacadeService} from '../../store/jira.facade.service';
+import {JiraFacadeService} from '../../../../store/jira.facade.service';
 import {Observable} from 'rxjs';
-import {Feature} from '../jira';
+import {Feature} from '../../../jira';
 
 @Component({
   selector: 'app-feature-list',

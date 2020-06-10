@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {ReportComponent} from './jira/report/report.component';
-import {PiListComponent} from './pi-list/pi-list.component';
+import {WelcomeComponent} from './welcome/welcome.component';
+import {StateComponent} from './jira/report/state/state/state.component';
+import {PiComponent} from './jira/report/pi/pi/pi.component';
 
 
 const routes: Routes = [
-  {path: '', component: ReportComponent},
-  {path: 'pi', component: PiListComponent}
+  {path: '', component: WelcomeComponent},
+  {path: 'state', component: StateComponent},
+  {path: 'pi', component: PiComponent}
 ];
 
 @NgModule({

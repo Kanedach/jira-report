@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {JiraFacadeService} from './store/jira.facade.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'jira-report';
+
+  constructor(private jiraFacadeService: JiraFacadeService) {
+    this.jiraFacadeService.jiraUI.fetchJira();
+  }
+
 }

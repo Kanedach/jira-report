@@ -8,23 +8,31 @@ import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {jiraReducer} from './store/reducers/jira.reducer';
 import {JiraFacadeService} from './store/jira.facade.service';
-import {ReportComponent} from './jira/report/report.component';
-import {FeatureListComponent} from './jira/feature-list/feature-list.component';
+import {FeatureListComponent} from './jira/report/state/feature-list/feature-list.component';
 import {EffectsModule} from '@ngrx/effects';
 import {JiraEffects} from './store/effects/jira.effects';
-import { StateStepComponent } from './jira/state-step/state-step.component';
+import { StateStepComponent } from './jira/report/state/state-step/state-step.component';
 import {MomentModule} from 'ngx-moment';
-import { PiListComponent } from './pi-list/pi-list.component';
-import { ProgressbarComponent } from './jira/progressbar/progressbar.component';
+import { PiListComponent } from './jira/report/pi/pi-list/pi-list.component';
+import { ProgressbarComponent } from './jira/shared/progressbar/progressbar.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { StateComponent } from './jira/report/state/state/state.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { PiComponent } from './jira/report/pi/pi/pi.component';
+import { PiStepComponent } from './jira/report/pi/pi-step/pi-step.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ReportComponent,
     FeatureListComponent,
     StateStepComponent,
     PiListComponent,
-    ProgressbarComponent
+    ProgressbarComponent,
+    WelcomeComponent,
+    StateComponent,
+    HeaderComponent,
+    PiComponent,
+    PiStepComponent
   ],
   imports: [
     BrowserModule,
