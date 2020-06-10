@@ -2,10 +2,11 @@ import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {JiraService} from '../../jira/jira.service';
 import {Injectable} from '@angular/core';
 import * as jiraAction from '../actions/jira.actions';
-import {map, switchMap} from 'rxjs/operators';
+import {map, switchMap, tap} from 'rxjs/operators';
 import * as jiraSelectors from '../selectors/jira.selectors';
 import {Store} from '@ngrx/store';
 import {environment} from '../../../environments/environment';
+import {Jira} from '../../jira/jira';
 
 @Injectable()
 export class JiraEffects {
@@ -34,9 +35,10 @@ export class JiraEffects {
       ofType(jiraAction.fetchMoreJIra),
       switchMap(({jira}) =>
         this.jiraService.getJira(jira.startAt + jira.maxResults + 1, environment.maxResultsLoad + 1).pipe(
-          map((res) => {
-            console.log(res);
-            if (res.startAt + res.maxResults >= res.total) {
+          tap(res => console.log(jira.startAt + jira.maxResults + 1)),
+          map((jira) => {
+            console.log(jira);
+            if (jira.startAt + jira.maxResults >= jira.total) {
               return jiraAction.fetchedJira({jira});
             }
             return jiraAction.fetchMoreJIra({jira});
