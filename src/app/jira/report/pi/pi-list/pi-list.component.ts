@@ -16,6 +16,11 @@ export class PiListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+  }
+
+  getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
   }
 
 }
