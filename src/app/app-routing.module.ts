@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {WelcomeComponent} from './welcome/welcome.component';
-import {StateComponent} from './jira/report/state/state/state.component';
-import {PiComponent} from './jira/report/pi/pi/pi.component';
+import {StateComponent} from './jira/report/state/state.component';
+import {PiComponent} from './jira/report/pi/pi.component';
 
 
 const routes: Routes = [

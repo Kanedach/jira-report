@@ -1,5 +1,4 @@
-<ng-container *ngIf="!(isLoading|async); else loading">
-  <div class="ui relaxed divided list">
+  <div class="ui relaxed divided list" *ngIf="feature">
     <div class="item" *ngFor="let f of feature | async">
       <div class="content">
         <p class="header">{{ f.key }} {{ f.summary }} <a href="https://jira.swisscom.com/browse/{{f.key}}" target="_blank"><i class="info icon"></i></a></p>
@@ -9,13 +8,7 @@
       </div>
     </div>
   </div>
-  <div class="fluid ui animated loading button" tabindex="0">
-    <div class="visible content">Show more results</div>
-    <div class="hidden content">
-      <i class="right plus icon"></i>
-    </div>
-  </div>
+<ng-container *ngIf="(progress | async) <= 100">
+  <app-loading></app-loading>
 </ng-container>
-<ng-template #loading>
-  <div class="ui big active centered inline text loader" style="margin-top: 15%">Loading feature...</div>
-</ng-template>
+

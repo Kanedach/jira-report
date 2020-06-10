@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  jiraApi: './assets/jira.jso',
+  jiraApi: './assets/jira.json',
   startAt: 0,
   maxResultsInit: 20,
   maxResultsLoad: 10

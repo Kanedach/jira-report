@@ -14,12 +14,13 @@ import {JiraEffects} from './store/effects/jira.effects';
 import { StateStepComponent } from './jira/report/state/state-step/state-step.component';
 import {MomentModule} from 'ngx-moment';
 import { PiListComponent } from './jira/report/pi/pi-list/pi-list.component';
-import { ProgressbarComponent } from './jira/shared/progressbar/progressbar.component';
+import { ProgressbarComponent } from './shared/progressbar/progressbar.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { StateComponent } from './jira/report/state/state/state.component';
+import { StateComponent } from './jira/report/state/state.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { PiComponent } from './jira/report/pi/pi/pi.component';
+import { PiComponent } from './jira/report/pi/pi.component';
 import { PiStepComponent } from './jira/report/pi/pi-step/pi-step.component';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PiStepComponent } from './jira/report/pi/pi-step/pi-step.component';
     StateComponent,
     HeaderComponent,
     PiComponent,
-    PiStepComponent
+    PiStepComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

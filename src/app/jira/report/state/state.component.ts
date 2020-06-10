@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Feature} from '../../../jira';
-import {JiraFacadeService} from '../../../../store/jira.facade.service';
+import {Feature} from '../../jira';
+import {JiraFacadeService} from '../../../store/jira.facade.service';
 
 @Component({
-  selector: 'app-pi',
-  templateUrl: './pi.component.html',
-  styleUrls: ['./pi.component.sass']
+  selector: 'app-state',
+  templateUrl: './state.component.html',
+  styleUrls: ['./state.component.sass']
 })
-export class PiComponent implements OnInit {
+export class StateComponent implements OnInit {
 
   feature: Observable<Feature[]>;
   total: Observable<number>;
@@ -26,6 +26,5 @@ export class PiComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 }

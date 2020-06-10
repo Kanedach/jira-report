@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
-import {Feature} from '../../../jira';
-import {JiraFacadeService} from '../../../../store/jira.facade.service';
+import {Feature} from '../../jira';
+import {JiraFacadeService} from '../../../store/jira.facade.service';
 
 @Component({
-  selector: 'app-state',
-  templateUrl: './state.component.html',
-  styleUrls: ['./state.component.sass']
+  selector: 'app-pi',
+  templateUrl: './pi.component.html',
+  styleUrls: ['./pi.component.sass']
 })
-export class StateComponent implements OnInit {
+export class PiComponent implements OnInit {
 
   feature: Observable<Feature[]>;
   total: Observable<number>;

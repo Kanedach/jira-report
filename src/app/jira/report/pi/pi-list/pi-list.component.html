@@ -1,14 +1,13 @@
-<ng-container *ngIf="!(isLoading|async); else loading">
-  <div class="ui relaxed divided list">
-    <ng-container *ngFor="let f of feature | async">
-      <ng-container *ngIf="f.fixVersion.length > 0">
-        <div class="item" *ngIf="f.fixVersion[0].created.slice(0, 10) !== f.created.slice(0, 10)">
-          <div class="content">
-            <p class="header">{{ f.key }} {{ f.summary }}
-              <a href="https://jira.swisscom.com/browse/{{f.key}}" target="_blank">
-                <i class="info icon"></i>
-              </a>
-              <a [ngClass]="{
+<div class="ui relaxed divided list" *ngIf="feature">
+  <ng-container *ngFor="let f of feature | async">
+    <ng-container *ngIf="f.fixVersion.length > 0">
+      <div class="item" *ngIf="f.fixVersion[0].created.slice(0, 10) !== f.created.slice(0, 10)">
+        <div class="content">
+          <p class="header">{{ f.key }} {{ f.summary }}
+            <a href="https://jira.swisscom.com/browse/{{f.key}}" target="_blank">
+              <i class="info icon"></i>
+            </a>
+            <a [ngClass]="{
               'Done': 'ui green label',
               'In Production': 'ui yellow label',
               'Testing': 'ui yellow label',
@@ -19,34 +18,17 @@
               'Funnel': 'ui grey label'
               }
               [f.status]">
-                {{f.status}}
-              </a>
-            </p>
-            <div class="description" style="margin-top: 10px">
-              <app-pi-step [fixVersion]="f.fixVersion" [created]="f.created"></app-pi-step>
-            </div>
-          </div>
-        </div>
-      </ng-container>
-    </ng-container>
-  </div>
-</ng-container>
-<ng-template #loading>
-  <div class="ui relaxed divided list">
-    <div class="ui item">
-      <div class="content">
-        <p class="header ui placeholder">&nbsp;</p>
-        <div class="description ui placeholder" style="margin-top: 10px">
-          <div class="ui mini steps">
-            <div class="step">
-              <div class="content">
-                <div class="title ui placeholder" style="width: 60px">&nbsp;</div>
-                <div class="description ui placeholder">&nbsp;</div>
-              </div>
-            </div>
+              {{f.status}}
+            </a>
+          </p>
+          <div class="description" style="margin-top: 10px">
+            <app-pi-step [fixVersion]="f.fixVersion" [created]="f.created"></app-pi-step>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</ng-template>
+    </ng-container>
+  </ng-container>
+</div>
+<ng-container *ngIf="(progress | async) < 100">
+  <app-loading></app-loading>
+</ng-container>
