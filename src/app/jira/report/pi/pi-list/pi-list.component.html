@@ -1,4 +1,4 @@
-<div class="ui relaxed divided list" *ngIf="feature">
+<div class="ui relaxed divided list" *ngIf="!(isLoading|async); else loading">
   <ng-container *ngFor="let f of feature | async">
     <ng-container *ngIf="f.fixVersion.length > 0">
       <div class="item" *ngIf="f.fixVersion[0].created.slice(0, 10) !== f.created.slice(0, 10)">
@@ -29,6 +29,9 @@
     </ng-container>
   </ng-container>
 </div>
-<ng-container *ngIf="(progress | async) < 100">
+<ng-container *ngIf="(progress | async) < 100 && !(isLoading|async)">
   <app-loading></app-loading>
 </ng-container>
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

@@ -10,6 +10,7 @@ import {Observable} from 'rxjs';
 export class PiListComponent implements OnInit {
 
   @Input() feature: Observable<Feature>;
+  @Input() isLoading: Observable<boolean>;
   @Input() progress: Observable<number>;
 
   constructor() {

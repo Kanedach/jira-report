@@ -1,5 +1,5 @@
 <app-progressbar [progress]="progress"></app-progressbar>
-<div class="ui container">
+<div class="ui container" style="margin-bottom: 40px">
   <app-header [title]="'State History'"></app-header>
-  <app-feature-list [feature]="feature" [progress]="progress"></app-feature-list>
+  <app-feature-list [feature]="feature" [isLoading]="isLoading" [progress]="progress"></app-feature-list>
 </div>
