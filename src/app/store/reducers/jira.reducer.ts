@@ -42,14 +42,14 @@ const reducer = createReducer(
     ...state,
     maxResults: jira.maxResults,
     startAt: jira.startAt,
-    total: jira.startAt,
+    total: jira.total,
     feature: [...state.feature, ...jira.feature],
     isLoading: false,
   })),
   on(jiraAction.fetchedJira, (state, {jira}) => ({
     maxResults: jira.maxResults,
     startAt: jira.startAt,
-    total: jira.startAt,
+    total: jira.total,
     feature: [...state.feature, ...jira.feature],
     isLoading: false,
   }))
