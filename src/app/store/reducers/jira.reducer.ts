@@ -29,7 +29,7 @@ const initJira: IJira = {
   total: null,
   startAt: 0,
   maxResults: 20,
-  feature: null
+  feature: []
 };
 
 const reducer = createReducer(
@@ -43,15 +43,14 @@ const reducer = createReducer(
     maxResults: jira.maxResults,
     startAt: jira.startAt,
     total: jira.startAt,
-    feature:  state.feature.concat(jira.feature),
+    feature: [...state.feature, ...jira.feature],
     isLoading: false,
   })),
   on(jiraAction.fetchedJira, (state, {jira}) => ({
-    ...state,
     maxResults: jira.maxResults,
     startAt: jira.startAt,
     total: jira.startAt,
-    feature:  state.feature.concat(jira.feature),
+    feature: [...state.feature, ...jira.feature],
     isLoading: false,
   }))
 );
