@@ -1,0 +1,16 @@
+<div class="ui mini steps">
+  <ng-container *ngIf="fixVersion.length > 0">
+    <div class="step">
+      <div class="content" *ngIf="fixVersion[0]">
+        <div class="title">{{fixVersion[0].from}}</div>
+        <div class="description">{{created | date: 'dd.MM.yyyy'}}</div>
+      </div>
+    </div>
+    <div class="step" *ngFor="let h of fixVersion; index as i">
+      <div class="content">
+        <div class="title">{{h.to}}</div>
+          <div class="description">{{h.created | date: 'dd.MM.yyyy'}}</div>
+      </div>
+    </div>
+  </ng-container>
+</div>
