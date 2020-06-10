@@ -40,13 +40,19 @@ const reducer = createReducer(
   })),
   on(jiraAction.fetchMoreJIra, (state, {jira}) => ({
     ...state,
-    ...jira,
+    maxResults: jira.maxResults,
+    startAt: jira.startAt,
+    total: jira.startAt,
+    feature:  state.feature.concat(jira.feature),
     isLoading: false,
   })),
   on(jiraAction.fetchedJira, (state, {jira}) => ({
     ...state,
-    ...jira,
-    isLoading: false
+    maxResults: jira.maxResults,
+    startAt: jira.startAt,
+    total: jira.startAt,
+    feature:  state.feature.concat(jira.feature),
+    isLoading: false,
   }))
 );
 

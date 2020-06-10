@@ -35,9 +35,7 @@ export class JiraEffects {
       ofType(jiraAction.fetchMoreJIra),
       switchMap(({jira}) =>
         this.jiraService.getJira(jira.startAt + jira.maxResults + 1, environment.maxResultsLoad + 1).pipe(
-          tap(res => console.log(jira.startAt + jira.maxResults + 1)),
-          map((jira: Jira) => {
-            console.log(jira);
+          map((jira) => {
             if (jira.startAt + jira.maxResults >= jira.total) {
               return jiraAction.fetchedJira({jira});
             }
