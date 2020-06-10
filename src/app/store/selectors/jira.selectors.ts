@@ -19,5 +19,5 @@ export const getFeature = createSelector(getJira, (state: IJira): Feature[] => {
   return state.feature;
 });
 export const getProgress = createSelector(getJira, (state: IJira): number => {
-  return state.startAt + state.maxResults * 100 / state.total;
+  return (state.startAt + state.maxResults) * 100 / state.total;
 });
