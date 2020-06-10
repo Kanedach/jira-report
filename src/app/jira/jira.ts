@@ -9,7 +9,9 @@ export interface Feature {
   key: string;
   summary: string;
   created: string;
-  histories: Histories[];
+  status: string;
+  state: Histories[];
+  fixVersion: Histories[];
 }
 
 export interface Histories {

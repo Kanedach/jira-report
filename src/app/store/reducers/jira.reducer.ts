@@ -13,7 +13,9 @@ export interface IFeature {
   key: string;
   summary: string;
   created: string;
-  histories: IHistories[];
+  status: string;
+  state: IHistories[];
+  fixVersion: IHistories[];
 }
 
 export interface IHistories {
@@ -24,9 +26,9 @@ export interface IHistories {
 
 const initJira: IJira = {
   isLoading: false,
-  total: 0,
+  total: null,
   startAt: 0,
-  maxResults: 0,
+  maxResults: 20,
   feature: null
 };
 
@@ -39,9 +41,9 @@ const reducer = createReducer(
   on(jiraAction.fetchedJira, (state, {jira}) => ({
     ...state,
     isLoading: false,
-    total: jira.total,
     startAt: jira.startAt,
     maxResults: jira.maxResults,
+    total: jira.total,
     feature: jira.feature
   }))
 );
