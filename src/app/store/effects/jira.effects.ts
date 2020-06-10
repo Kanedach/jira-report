@@ -5,6 +5,7 @@ import * as jiraAction from '../actions/jira.actions';
 import {map, switchMap} from 'rxjs/operators';
 import * as jiraSelectors from '../selectors/jira.selectors';
 import {Store} from '@ngrx/store';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class JiraEffects {
@@ -20,11 +21,28 @@ export class JiraEffects {
     this.actions$.pipe(
       ofType(jiraAction.fetchJira),
       switchMap(() =>
-        this.jiraService.getJira(this.store$.select(jiraSelectors.getStartAt), this.store$.select(jiraSelectors.getMaxResults)).pipe(
-          map(jira => jiraAction.fetchedJira({
+        this.jiraService.getJira(environment.startAt, environment.maxResultsInit).pipe(
+          map(jira => jiraAction.fetchMoreJIra({
             jira
           }))
         )
       )
     ));
+
+  public fetchMoreJira = createEffect(() =>
+    this.actions$.pipe(
+      ofType(jiraAction.fetchMoreJIra),
+      switchMap(({jira}) =>
+        this.jiraService.getJira(jira.startAt + jira.maxResults + 1, environment.maxResultsLoad + 1).pipe(
+          map((res) => {
+            console.log(res);
+            if (res.startAt + res.maxResults >= res.total) {
+              return jiraAction.fetchedJira({jira});
+            }
+            return jiraAction.fetchMoreJIra({jira});
+          })
+        )
+      )
+    ));
+
 }

@@ -15,6 +15,7 @@ import {JiraEffects} from './store/effects/jira.effects';
 import { StateStepComponent } from './jira/state-step/state-step.component';
 import {MomentModule} from 'ngx-moment';
 import { PiListComponent } from './pi-list/pi-list.component';
+import { ProgressbarComponent } from './jira/progressbar/progressbar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PiListComponent } from './pi-list/pi-list.component';
     ReportComponent,
     FeatureListComponent,
     StateStepComponent,
-    PiListComponent
+    PiListComponent,
+    ProgressbarComponent
   ],
   imports: [
     BrowserModule,

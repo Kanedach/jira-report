@@ -1,8 +1,9 @@
+<app-progressbar [progress]="progress"></app-progressbar>
 <div class="ui container">
   <h2 class="ui center aligned icon header" style="margin-top: 20px">
     <i class="circular chart line icon"></i>
     Jira Report
   </h2>
-  <app-feature-list></app-feature-list>
+  <app-feature-list [feature]="feature" [isLoading]="isLoading"></app-feature-list>
 </div>
 

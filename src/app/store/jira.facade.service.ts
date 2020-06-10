@@ -20,7 +20,8 @@ export class JiraFacadeService {
       isLoading: ((): Observable<boolean> => this.store$.select(jiraSelector.isInitLoading))(),
       getStartAt: ((): Observable<number> => this.store$.select(jiraSelector.getStartAt))(),
       getMaxResults: ((): Observable<number> => this.store$.select(jiraSelector.getMaxResults))(),
-      getFeature: ((): Observable<Feature[]> => this.store$.select(jiraSelector.getFeature))()
+      getFeature: ((): Observable<Feature[]> => this.store$.select(jiraSelector.getFeature))(),
+      getProgress: ((): Observable<number> => this.store$.select(jiraSelector.getProgress))()
     };
   }
 }
