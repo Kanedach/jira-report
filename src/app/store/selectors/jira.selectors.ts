@@ -12,6 +12,7 @@ export const getStartAt = createSelector(getJira, (state: IJira): number => {
   return state.startAt;
 });
 export const getMaxResults = createSelector(getJira, (state: IJira): number => state.maxResults);
+export const getJql = createSelector(getJira, (state: IJira): string => state.jql);
 export const getFeature = createSelector(getJira, (state: IJira): Feature[] => {
   if (state.feature === null) {
     return null;

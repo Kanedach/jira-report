@@ -31,7 +31,9 @@
               "node_modules/semantic-ui-css/semantic.css",
               "src/styles.sass"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/semantic-ui-css/semantic.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -96,7 +98,9 @@
               "node_modules/semantic-ui-css/semantic.css",
               "src/styles.sass"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/semantic-ui-css/semantic.min.js"
+            ]
           }
         },
         "lint": {

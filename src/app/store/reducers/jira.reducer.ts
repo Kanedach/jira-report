@@ -6,6 +6,7 @@ export interface IJira {
   total: number;
   startAt: number;
   maxResults: number;
+  jql: string;
   feature: IFeature[];
 }
 
@@ -29,6 +30,7 @@ const initJira: IJira = {
   total: null,
   startAt: 0,
   maxResults: 20,
+  jql: null,
   feature: []
 };
 
@@ -43,6 +45,7 @@ const reducer = createReducer(
     maxResults: jira.maxResults,
     startAt: jira.startAt,
     total: jira.total,
+    jql: jira.jql,
     feature: [...state.feature, ...jira.feature],
     isLoading: false,
   })),
@@ -50,6 +53,7 @@ const reducer = createReducer(
     maxResults: jira.maxResults,
     startAt: jira.startAt,
     total: jira.total,
+    jql: jira.jql,
     feature: [...state.feature, ...jira.feature],
     isLoading: false,
   }))

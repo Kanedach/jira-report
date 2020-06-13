@@ -2,6 +2,7 @@ export interface Jira {
   total: number;
   startAt: number;
   maxResults: number;
+  jql: string;
   feature: Feature[];
 }
 

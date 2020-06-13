@@ -2,6 +2,7 @@
   "total": 20,
   "startAt": 0,
   "maxResults": 20,
+  "jql": "project=\"OCE Wireline Features\" AND fixVersion is not EMPTY And (resolution in (Done) or resolution is EMPTY)",
   "feature": [
     {
       "key": "OCEFEWLINE-194",

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {JiraFacadeService} from '../store/jira.facade.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-welcome',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  jql: Observable<string>;
+
+  constructor(private jiraFacadeService: JiraFacadeService) {
+  }
 
   ngOnInit(): void {
+    this.jql = this.jiraFacadeService.jiraUI.getJql;
   }
 
 }
