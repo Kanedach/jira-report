@@ -9,7 +9,7 @@
     <div class="step" *ngFor="let h of history; index as i">
       <div class="content">
         <div class="title">{{h.to}}</div>
-        <ng-container *ngIf="history[i+1]">
+        <ng-container *ngIf="history[i+1]; else resolutionState">
           <div class="description">{{history[i+1].created | amDifference: history[i].created :'days' : false}} days</div>
         </ng-container>
       </div>
@@ -24,5 +24,11 @@
       <div class="description">{{created | date: 'dd.MM.yyyy'}}</div>
     </div>
   </div>
+</ng-template>
+
+<ng-template #resolutionState>
+  <ng-container *ngIf="resolution">
+    <div class="description">{{resolution.name}}</div>
+  </ng-container>
 </ng-template>
 

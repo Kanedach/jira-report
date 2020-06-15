@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {Feature} from '../../jira';
 import {JiraFacadeService} from '../../../store/jira.facade.service';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-pi',
@@ -26,6 +27,6 @@ export class PiComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.jiraFacadeService.jiraUI.fetchJira();
   }
 }

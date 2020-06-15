@@ -17,12 +17,17 @@ export interface IFeature {
   status: string;
   state: IHistories[];
   fixVersion: IHistories[];
+  resolution: Resolution;
 }
 
 export interface IHistories {
   created: string;
   from: string;
   to: string;
+}
+
+export interface Resolution {
+  name: string;
 }
 
 const initJira: IJira = {

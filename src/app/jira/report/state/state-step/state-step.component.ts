@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Resolution} from '../../../jira';
 
 @Component({
   selector: 'app-state-step',
@@ -10,6 +11,7 @@ export class StateStepComponent implements OnInit {
   @Input() history: History;
   @Input() created: string;
   @Input() dateNewState: History;
+  @Input() resolution: Resolution;
 
   constructor() {
   }

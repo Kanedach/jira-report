@@ -13,10 +13,15 @@ export interface Feature {
   status: string;
   state: Histories[];
   fixVersion: Histories[];
+  resolution: Resolution;
 }
 
 export interface Histories {
   created: string;
   from: string;
   to: string;
+}
+
+export interface Resolution {
+  name: string;
 }

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {JiraFacadeService} from '../store/jira.facade.service';
 import {Observable} from 'rxjs';
+import {Feature} from '../jira/jira';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-welcome',
@@ -10,12 +12,15 @@ import {Observable} from 'rxjs';
 export class WelcomeComponent implements OnInit {
 
   jql: Observable<string>;
+  feature: Observable<Feature[]>;
 
   constructor(private jiraFacadeService: JiraFacadeService) {
+    this.jql = this.jiraFacadeService.jiraUI.getJql;
+    this.feature = this.jiraFacadeService.jiraUI.getFeature;
   }
 
   ngOnInit(): void {
-    this.jql = this.jiraFacadeService.jiraUI.getJql;
+
   }
 
 }
