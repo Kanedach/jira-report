@@ -21,9 +21,6 @@ import { HeaderComponent } from './shared/header/header.component';
 import { PiComponent } from './jira/report/pi/pi.component';
 import { PiStepComponent } from './jira/report/pi/pi-step/pi-step.component';
 import { LoadingComponent } from './shared/loading/loading.component';
-import { ChartPieComponent } from './shared/chart-pie/chart-pie.component';
-import {NgxEchartsModule} from 'ngx-echarts';
-import * as echarts from 'echarts';
 
 @NgModule({
   declarations: [
@@ -37,8 +34,7 @@ import * as echarts from 'echarts';
     HeaderComponent,
     PiComponent,
     PiStepComponent,
-    LoadingComponent,
-    ChartPieComponent
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +43,7 @@ import * as echarts from 'echarts';
     StoreModule.forRoot({jira: jiraReducer}),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: false}),
     EffectsModule.forRoot([JiraEffects]),
-    MomentModule,
-    NgxEchartsModule.forRoot({
-      echarts
-    })
+    MomentModule
   ],
   providers: [JiraFacadeService],
   bootstrap: [AppComponent]
